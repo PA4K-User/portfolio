@@ -13,7 +13,7 @@ const TitleLink = ({isHighlight, title, link}) => {
         <div className={`font-bold ${isHighlight? " text-primaryTitle": "text-white"}`}>
            <a href={link} target="_blank"> 
             {title}
-            <FontAwesomeIcon className={ `text-xs -rotate-45 duration-300 ease-out ${isHighlight? "translate-x-1 -translate-y-1" : ""}`} icon={faArrowRight} />
+            <FontAwesomeIcon className={ `ml-2 text-md -rotate-45 duration-300 ease-out ${isHighlight? "translate-x-1 -translate-y-1" : ""}`} icon={faArrowRight} />
            </a>
         </div>
     )

@@ -1,9 +1,9 @@
-import fileName from '../assets/front-end-resume.pdf'
+import fileName from '../assets/Resume.pdf'
 
 export const data = {
     name: "Siwaphon Panisen",
-    title: "Software Developer - between jobs",
-    caption: "I'm junior Front end developer",
-    btnText: "View Resume",
+    title: "Software Developer at Hitachi Industrial Technology (Thailand) Ltd.",
+    caption: "I'm mid-level Software developer (2 years Exp.)",
+    btnText: "Resume",
     link: fileName,
 }

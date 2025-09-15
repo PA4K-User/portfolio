@@ -17,7 +17,7 @@ const ContentContainer = ({
        
     return (
         <div id={SECTION_ID} className=" space-y-10 scroll-m-14">
-            <div className=" text-primaryAccent font-medium">Experience</div>
+            <div className="text-2xl text-primaryAccent font-bold">Experience</div>
             {
                 data.map(({ 
                     date = "", 
@@ -30,7 +30,7 @@ const ContentContainer = ({
                 }, index) => (
                     <div                    
                         key={`${SECTION_ID}-${index}-${title.replace(" ","")}`}
-                        className={`grid grid-cols-[25%_75%] rounded-md px-2 py-6 transition-all ${isMouseEnter[`${SECTION_ID}-${index}`] ? " bg-gray-900" : ""}`}
+                        className={`grid grid-cols-1 gap-4 md:grid-cols-[25%_75%] rounded-md px-4 py-4 transition-all ${isMouseEnter[`${SECTION_ID}-${index}`] ? " bg-gray-900" : ""}`}
                         onMouseEnter={() => setMouseEnter({[`${SECTION_ID}-${index}`]: true})}
                         onMouseLeave={() => setMouseEnter({[`${SECTION_ID}-${index}`]: false})}
                     >
@@ -38,7 +38,7 @@ const ContentContainer = ({
                             <FormattedDate isHighlight={isMouseEnter}>{date}</FormattedDate>
                             <Picture picture={picture} title="Fashion Ecommerce" />
                         </div>
-                        <div className=" grid gap-y-4">
+                        <div className=" grid gap-y-2">
                             <TitleLink isHighlight={isMouseEnter[`${SECTION_ID}-${index}`]} title={title} link={link} />
                             <div className=" flex gap-4 text-xl">
                                 {

@@ -19,9 +19,8 @@ const Navbar = () => {
             <div 
               key={`nav-${e}-${i}`}
               onClick={() => handleClick(e.sectionId)}
-              className="text-gray-400 cursor-pointer hover:text-white hover:scale-110 transition-all"
+              className="text-2xl text-gray-300 cursor-pointer hover:text-white hover:scale-105 transition-all"
             >
-              <FontAwesomeIcon className=' mr-2 text-primaryTitle' icon={faArrowRight}/>
               {e.title}
             </div>
           ))

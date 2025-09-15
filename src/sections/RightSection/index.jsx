@@ -5,7 +5,7 @@ import Footer from "../Footer";
 
 const RightSection = () => {
     return (
-      <div className=" grid gap-y-40 px-5">
+      <div className=" grid gap-y-12 px-5">
         <About/>
         <ContentContainer
           sectionTitle = "Experience"

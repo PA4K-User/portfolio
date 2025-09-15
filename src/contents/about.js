@@ -1,8 +1,8 @@
 export const data = {
-    title: "About",
-    description: "Junior Front end developer. Proactive, concentrate and self-learning programmer. \
-    Developing and programming with many projects. When i got struck before asking someone else. \
-    I'll research for myself and do with my best try.",
-    
-}
-
+  title: "About",
+  description:
+    "Combines strong problem-solving ability with a growth mindset, continuously learning and \
+     applying new technologies such as AI-powered development (ChatGPT, Gemini) to enhance productivity. \
+     Recognized for attention to detail, adaptability, and collaboration skills, with proven success in \
+     delivering high-quality solutions and modernizing legacy systems.",
+};
