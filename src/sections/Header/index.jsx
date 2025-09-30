@@ -1,9 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faHeart, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { data } from "../../contents/header";
 
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement } from '../../counterSlice';
+
 const Header = () => {
+  
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
   return (
     <div>
       <div className=" flex flex-col gap-2">
@@ -15,7 +22,7 @@ const Header = () => {
             backgroundSize: "200% 200%", // ทำให้ gradient ขยับได้เนียน
           }}
         >
-          {data.name}
+          {data.name} <FontAwesomeIcon className="text-red-500" icon={faHeart} /> <span className="font-bold">{`${count === 0 ? '' : count}` + `${count === 0 ? '' : count === 1 ? ' Like' : ' Likes'}`}</span>
         </motion.div>
         <div className=" text-white font-semibold">{data.title}</div>
         <div className=" text-sm text-gray-300 w-5/6">{data.caption}</div>
@@ -31,6 +38,10 @@ const Header = () => {
               </span>
             </span>
           </a>
+        </div>
+        <div className="flex gap-4 mt-4">
+          <button className="font-bold border rounded-md px-3 py-1" onClick={() => dispatch(increment())}><FontAwesomeIcon icon={faHeart} /> Like</button>
+          <button className="font-bold border rounded-md px-3 py-1 text-black bg-white" onClick={() => dispatch(decrement())}><FontAwesomeIcon icon={faThumbsDown} /> Disike</button>
         </div>
       </div>
     </div>
