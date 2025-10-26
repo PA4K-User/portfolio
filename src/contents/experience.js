@@ -6,8 +6,27 @@ import movie_app from "../assets/movie-app.jpg"
 import photographer from "../assets/photographer.jpg"
 import Nuxt_Movie from "../assets/Nuxt_Movie.jpg"
 import Urban_Build from "../assets/Urban_Build.jpg"
+import Funiro from "../assets/Funiro.jpg"
 
 export const data = [
+    {
+        date: "2025",
+        title: "Funiro",
+        link: "https://funiro-mui.vercel.app/",
+        materials: [
+            
+        ],
+        descriptions: [
+            "The project Funiro App",
+            "Using React Material-UI"
+            
+        ],
+        skills: [
+            ["React", "Material-UI", "Vite"],
+            
+        ],
+        picture: Funiro,
+    },
     {
         date: "2025",
         title: "Urban Build",
