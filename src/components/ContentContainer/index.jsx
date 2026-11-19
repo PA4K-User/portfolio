@@ -1,4 +1,3 @@
-import { useState } from "react";
 import FormattedDate from "../FormattedDate";
 import Picture from "../Picture";
 import TitleLink from "../TitleLink";
@@ -10,60 +9,51 @@ const ContentContainer = ({
     sectionTitle = "",
     data = []
 }) => {
+    const SECTION_ID = `${sectionTitle}-section`;
 
-    const [isMouseEnter, setMouseEnter] = useState({});
-
-    const SECTION_ID = `${sectionTitle}-section`;   
-       
     return (
-        <div id={SECTION_ID} className=" space-y-10 scroll-m-14">
-            <div className="text-2xl text-primaryAccent font-bold">Experience</div>
-            {
-                data.map(({ 
-                    date = "", 
-                    title = "", 
-                    link = "", 
-                    materials = [], 
-                    descriptions = [], 
-                    skills = [], 
-                    picture = "",
-                }, index) => (
-                    <div                    
-                        key={`${SECTION_ID}-${index}-${title.replace(" ","")}`}
-                        className={`grid grid-cols-1 gap-4 md:grid-cols-[25%_75%] rounded-md px-4 py-4 transition-all ${isMouseEnter[`${SECTION_ID}-${index}`] ? " bg-gray-900" : ""}`}
-                        onMouseEnter={() => setMouseEnter({[`${SECTION_ID}-${index}`]: true})}
-                        onMouseLeave={() => setMouseEnter({[`${SECTION_ID}-${index}`]: false})}
-                    >
-                        <div>
-                            <FormattedDate isHighlight={isMouseEnter}>{date}</FormattedDate>
-                            <Picture picture={picture} title="Fashion Ecommerce" />
-                        </div>
-                        <div className=" grid gap-y-2">
-                            <TitleLink isHighlight={isMouseEnter[`${SECTION_ID}-${index}`]} title={title} link={link} />
-                            <div className=" flex gap-4 text-xl">
-                                {
-                                    materials.map((e, i) => (
-                                        <Material key={`${e}-Material-${i}`} icon={e.type} link={e.link} />
-                                    ))
-                                }                               
-                                
+        <section id={SECTION_ID} className="scroll-mt-16">
+            <h2 className="mb-6 text-xs font-semibold uppercase tracking-widest text-muted">{sectionTitle}</h2>
+            <ul className="flex flex-col gap-4">
+                {
+                    data.map(({
+                        date = "",
+                        title = "",
+                        link = "",
+                        materials = [],
+                        descriptions = [],
+                        skills = [],
+                        picture = "",
+                    }, index) => (
+                        <li
+                            key={`${SECTION_ID}-${index}-${title.replace(" ", "")}`}
+                            className="group grid grid-cols-1 gap-4 rounded-xl p-4 transition-colors hover:bg-surface sm:grid-cols-[8rem_1fr] sm:gap-6"
+                        >
+                            <div className="space-y-3">
+                                <FormattedDate>{date}</FormattedDate>
+                                <Picture picture={picture} title={title} />
                             </div>
-                            {
-                                descriptions.map((e, i) => (
-                                    <Description key={`${e}-Description-${i}`} description={e} />
-                                ))
-                            }
-                            {
-                                skills.map((e, i) => (
-                                    <Tech key={`${e}-skill-${i}`} isHighlight={isMouseEnter[`${SECTION_ID}-${index}`]} data={e} />
-                                ))
-                            }                            
-                        </div>
-                    </div>
-                ))
-            }
-
-        </div>
+                            <div className="flex flex-col gap-2">
+                                <TitleLink title={title} link={link} />
+                                {materials.length > 0 && (
+                                    <div className="flex gap-4 text-lg text-muted">
+                                        {materials.map((e, i) => (
+                                            <Material key={`${title}-material-${i}`} icon={e.type} link={e.link} />
+                                        ))}
+                                    </div>
+                                )}
+                                {descriptions.map((e, i) => (
+                                    <Description key={`${title}-description-${i}`} description={e} />
+                                ))}
+                                {skills.map((e, i) => (
+                                    <Tech key={`${title}-skill-${i}`} data={e} />
+                                ))}
+                            </div>
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
     )
 }
 

@@ -1,8 +1,6 @@
-const FormattedDate = ({isHighlight,Children}) => {
+const FormattedDate = ({children}) => {
     return (
-        <div>
-            <span className={`text-sm ${isHighlight? "text-primaryTitle": ""}`}>{Children}</span>
-        </div>
+        <div className="pt-1 text-xs font-semibold uppercase tracking-wide text-muted">{children}</div>
     )
 }
 

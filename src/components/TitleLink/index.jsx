@@ -1,21 +1,18 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const TitleLink = ({isHighlight, title, link}) => {
-    if(!link){
-        return (
-            <div className={`text-primaryAccent ${isHighlight? " text-primaryTitle": ""}`}>{title}</div>          
-            
-        )
+const TitleLink = ({title, link}) => {
+    if (!link) {
+        return <h3 className="font-semibold text-fg">{title}</h3>
     }
-    
-    return (      
-        <div className={`font-bold ${isHighlight? " text-primaryTitle": "text-white"}`}>
-           <a href={link} target="_blank"> 
-            {title}
-            <FontAwesomeIcon className={ `ml-2 text-md -rotate-45 duration-300 ease-out ${isHighlight? "translate-x-1 -translate-y-1" : ""}`} icon={faArrowRight} />
-           </a>
-        </div>
+
+    return (
+        <h3 className="font-semibold text-fg transition-colors group-hover:text-accent">
+            <a href={link} target="_blank" rel="noreferrer">
+                {title}
+                <FontAwesomeIcon className="ml-2 text-xs -rotate-45 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" icon={faArrowRight} />
+            </a>
+        </h3>
     )
 }
 

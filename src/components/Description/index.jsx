@@ -1,6 +1,6 @@
 const Description = ({description}) => {
     return (
-        <div  className=" text-sm text-gray-400">{description}</div>
+        <p className="text-sm leading-relaxed text-muted">{description}</p>
     )
 }
 

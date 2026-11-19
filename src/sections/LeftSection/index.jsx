@@ -1,16 +1,20 @@
 import Header from "../Header";
 import Navbar from "../Navbar";
 import Contact from "../Contact";
+import ThemeToggle from "../../components/ThemeToggle";
 
 const LeftSection = () => {
     return (
-        <div className=" px-5">
-            <div className='sticky top-14 grid gap-y-5 lg:grid-rows-[35%_45%_20%] lg:h-[86.75vh]'>
+        <header className="py-10 sm:py-14 lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[42%] lg:flex-col lg:justify-between lg:py-20">
+            <div>
                 <Header/>
                 <Navbar/>
-                <Contact/>
             </div>
-      </div>
+            <div className="mt-8 flex items-center justify-between lg:mt-0">
+                <Contact/>
+                <ThemeToggle/>
+            </div>
+        </header>
     )
 }
 

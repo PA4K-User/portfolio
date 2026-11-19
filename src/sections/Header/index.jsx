@@ -1,47 +1,47 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowDown, faHeart, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
+import { faArrowUpRightFromSquare, faHeart, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { data } from "../../contents/header";
 
 import { useSelector, useDispatch } from 'react-redux';
 import { increment, decrement } from '../../counterSlice';
 
 const Header = () => {
-  
   const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
 
   return (
-    <div>
-      <div className=" flex flex-col gap-2">
-        <motion.div
-          className="text-3xl font-semibold bg-gradient-to-r from-purple-600 via-pink-400 to-white bg-clip-text text-transparent"
-          animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-          transition={{ duration: 3000, ease: "easeInOut", repeat: Infinity }}
-          style={{
-            backgroundSize: "200% 200%", // ทำให้ gradient ขยับได้เนียน
-          }}
+    <div className="flex flex-col gap-3">
+      <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">{data.name}</h1>
+      <p className="text-lg font-medium text-fg">{data.title}</p>
+      <p className="max-w-sm text-muted">{data.caption}</p>
+      <div className="mt-5 flex flex-wrap items-center gap-3">
+        <a
+          href={data.link}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-fg transition-opacity hover:opacity-90"
         >
-          {data.name} <FontAwesomeIcon className="text-red-500" icon={faHeart} /> <span className="font-bold">{`${count === 0 ? '' : count}` + `${count === 0 ? '' : count === 1 ? ' Like' : ' Likes'}`}</span>
-        </motion.div>
-        <div className=" text-white font-semibold">{data.title}</div>
-        <div className=" text-sm text-gray-300 w-5/6">{data.caption}</div>
-        <div className=" mt-4">
-          <a href={data.link} target=" _blank">
-            <span className=" bg-primaryTitle text-primaryBase font-semibold px-3 py-2 rounded-md">
-              {data.btnText}
-              <span className=" rotate-90 inline-block ml-2 text-sm">
-                <FontAwesomeIcon
-                  className=" animate-bounce"
-                  icon={faArrowDown}
-                />
-              </span>
-            </span>
-          </a>
-        </div>
-        <div className="flex gap-4 mt-4">
-          <button className="font-bold border rounded-md px-3 py-1" onClick={() => dispatch(increment())}><FontAwesomeIcon icon={faHeart} /> Like</button>
-          <button className="font-bold border rounded-md px-3 py-1 text-black bg-white" onClick={() => dispatch(decrement())}><FontAwesomeIcon icon={faThumbsDown} /> Disike</button>
+          {data.btnText}
+          <FontAwesomeIcon className="text-xs" icon={faArrowUpRightFromSquare} />
+        </a>
+        <div className="inline-flex items-center rounded-full border border-line text-sm">
+          <button
+            type="button"
+            aria-label="Like"
+            onClick={() => dispatch(increment())}
+            className="flex items-center gap-2 rounded-l-full px-4 py-2.5 transition-colors hover:text-accent cursor-pointer"
+          >
+            <FontAwesomeIcon className={count > 0 ? "text-red-500" : ""} icon={faHeart} />
+            <span className="tabular-nums">{count}</span>
+          </button>
+          <button
+            type="button"
+            aria-label="Remove like"
+            onClick={() => dispatch(decrement())}
+            className="rounded-r-full border-l border-line px-3 py-2.5 text-muted transition-colors hover:text-fg cursor-pointer"
+          >
+            <FontAwesomeIcon icon={faMinus} />
+          </button>
         </div>
       </div>
     </div>

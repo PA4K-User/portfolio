@@ -1,5 +1,3 @@
-import { faGithub, faMedium, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import picExp from "../assets/react.svg"
 import data_finace from "../assets/data_finance.jpg"
 import food_app from "../assets/food-app.jpg"
 import movie_app from "../assets/movie-app.jpg"
@@ -10,9 +8,9 @@ import Funiro from "../assets/Funiro.jpg"
 
 export const data = [
     {
-        date: "2025",
+        date: "2026",
         title: "Funiro",
-        link: "https://funiro-mui.vercel.app/",
+        link: "https://furniro-dusky-nine.vercel.app/",
         materials: [
             
         ],
@@ -28,7 +26,7 @@ export const data = [
         picture: Funiro,
     },
     {
-        date: "2025",
+        date: "2026",
         title: "Urban Build",
         link: "https://urban-build-six.vercel.app/",
         materials: [
@@ -46,25 +44,7 @@ export const data = [
         picture: Urban_Build,
     },
     {
-        date: "2025",
-        title: "Movie App",
-        link: "https://nuxt-movie-app-rosy.vercel.app/",
-        materials: [
-            
-        ],
-        descriptions: [
-            "The project Movie-app clone from Netflix-UX/UI",
-            "Using Nuxt Tailwind and AOS"
-            
-        ],
-        skills: [
-            ["Nuxt", "Tailwind", "AOS"],
-            
-        ],
-        picture: Nuxt_Movie,
-    },
-    {
-        date: "2022-2023",
+        date: "2006",
         title: "Movie App",
         link: "https://movie-app-nine-red.vercel.app/",
         materials: [

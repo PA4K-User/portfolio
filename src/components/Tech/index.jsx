@@ -1,12 +1,12 @@
-const Tech = ({isHighlight, data}) => {
+const Tech = ({data}) => {
     return (
-        <div className=" flex gap-4 text-sm my-auto">
+        <ul className="mt-2 flex flex-wrap gap-2">
             {
                 data.map((e, i) => (
-                    <div key={`${e}-tech-${i}`} className={` bg-green-700 font-bold px-2 py-1 rounded-md ${isHighlight? " text-white": ""}`}>{e}</div>
+                    <li key={`${e}-tech-${i}`} className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">{e}</li>
                 ))
-            }                              
-        </div>
+            }
+        </ul>
     )
 }
 

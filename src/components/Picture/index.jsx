@@ -1,8 +1,6 @@
 const Picture = ({picture, title}) => {
     return (
-        <div className="flex justify-center w-200 h-50">
-            <img src={picture} alt={title} className="rounded-md"/>
-        </div>
+        <img src={picture} alt={title} loading="lazy" className="aspect-video w-full rounded-md border border-line object-cover"/>
     )
 }
 

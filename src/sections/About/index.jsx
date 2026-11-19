@@ -2,10 +2,10 @@ import {data} from '../../contents/about'
 
 const About = () => {
     return (
-        <div className='space-y-4 scroll-m-14' id = "About-section">
-            <div className='text-2xl text-primaryAccent font-bold'>{data.title}</div>
-            <div className='text-gray-300'>{data.description}</div>
-        </div>
+        <section id="About-section" className="scroll-mt-16 space-y-4">
+            <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">{data.title}</h2>
+            <p className="leading-relaxed text-muted">{data.description}</p>
+        </section>
     )
 }
 
