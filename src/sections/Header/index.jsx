@@ -10,35 +10,36 @@ const Header = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex flex-col gap-3">
-      <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">{data.name}</h1>
-      <p className="text-lg font-medium text-fg">{data.title}</p>
-      <p className="max-w-sm text-muted">{data.caption}</p>
-      <div className="mt-5 flex flex-wrap items-center gap-3">
+    <div className="flex flex-col">
+      <p className="font-display text-2xl font-bold sm:text-3xl xl:text-4xl">Hi, I am</p>
+      <h1 className="mt-3 font-display text-5xl font-bold leading-[1.05] sm:text-6xl xl:text-7xl">{data.name}</h1>
+      <p className="mt-4 font-display text-lg font-extrabold text-muted sm:text-xl">{data.title}</p>
+      <p className="mt-2 text-sm leading-body text-fg/70">{data.caption}</p>
+      <div className="mt-8 flex flex-wrap items-center gap-4">
         <a
           href={data.link}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-fg transition-opacity hover:opacity-90"
+          className="inline-flex items-center gap-2 border-x-2 border-line px-6 py-2 font-heading text-sm font-semibold uppercase tracking-label transition-colors hover:bg-fg hover:text-surface-fg"
         >
           {data.btnText}
           <FontAwesomeIcon className="text-xs" icon={faArrowUpRightFromSquare} />
         </a>
-        <div className="inline-flex items-center rounded-full border border-line text-sm">
+        <div className="inline-flex items-stretch bg-tile text-sm shadow-tile">
           <button
             type="button"
             aria-label="Like"
             onClick={() => dispatch(increment())}
-            className="flex items-center gap-2 rounded-l-full px-4 py-2.5 transition-colors hover:text-accent cursor-pointer"
+            className="flex items-center gap-2 px-4 py-2.5 transition-colors hover:bg-fg hover:text-surface-fg cursor-pointer"
           >
-            <FontAwesomeIcon className={count > 0 ? "text-red-500" : ""} icon={faHeart} />
-            <span className="tabular-nums">{count}</span>
+            <FontAwesomeIcon className={count > 0 ? "text-red-600" : ""} icon={faHeart} />
+            <span className="font-heading font-semibold tabular-nums">{count}</span>
           </button>
           <button
             type="button"
             aria-label="Remove like"
             onClick={() => dispatch(decrement())}
-            className="rounded-r-full border-l border-line px-3 py-2.5 text-muted transition-colors hover:text-fg cursor-pointer"
+            className="border-l border-fg/20 px-3 py-2.5 transition-colors hover:bg-fg hover:text-surface-fg cursor-pointer"
           >
             <FontAwesomeIcon icon={faMinus} />
           </button>

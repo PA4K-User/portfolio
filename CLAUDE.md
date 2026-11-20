@@ -23,3 +23,10 @@ Single-page personal portfolio: React 18 + Vite 4 + Tailwind 3 (no router in use
 - `src/components/ContentContainer` renders a list of such entries. Its section element id is `${sectionTitle}-section`, and `Navbar` scrolls to those ids (`About-section`, `Experience-section`) via `scrollIntoView` — keep ids and the `navs` array in sync when adding sections. 
 - Redux store (`src/store.js`) has only a demo `counter` slice (`src/counterSlice.js`, decrement clamps at 0), used by `Header`'s counter buttons; nothing else uses the store.
 - Theme: Tailwind v4 via `@tailwindcss/vite`; there is no `tailwind.config.js`. Color tokens (`bg`, `surface`, `fg`, `muted`, `line`, `accent`) are CSS variables in `src/index.css`, mapped in `@theme inline`. Light/dark follows system preference; `components/ThemeToggle` sets `data-theme` on `<html>` and persists it in localStorage. Font: Inter + Noto Sans Thai (Google Fonts in `index.html`).
+
+## Redesign ตาม Figma
+- Figma file: https://www.figma.com/design/FDYXa9n55NlnC5rklPcYPM/Portfolio---Tomasz-Gajda--Community-?node-id=7-9&t=9nJSrWJXonp7CH5o-1
+- เปลี่ยนแค่ UI (JSX/Tailwind) ห้ามแตะ API calls, hooks, state, data fetching ถ้าไม่ได้สั่ง
+- ใช้ component เดิมใน src/components/ ก่อน ถ้าไม่พอค่อยแก้หรือสร้างใหม่
+- props/interface เดิมต้องใช้ได้เหมือนเดิม ห้ามทำให้หน้าอื่นพัง
+- design tokens อยู่ที่ tailwind.config / globals.css

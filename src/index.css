@@ -1,65 +1,69 @@
 @import "tailwindcss";
 
+/* Design tokens — from Figma "tomaszgajda.pl - desktop" (1:2). Light only, monochrome. */
 :root {
-  --bg: #fafaf9;
-  --surface: #f3f3f1;
-  --fg: #1c1b1a;
-  --muted: #6b6a66;
-  --line: #e4e3df;
-  --accent: #4f46e5;
+  --bg: #e9e9e9;          /* page */
+  --hero: #d7d7d7;        /* hero background, edge of the glow gradient */
+  --surface: #1d1d1d;     /* dark bands (Experience) */
+  --surface-deep: #1a1a1a;/* footer */
+  --surface-fg: #ffffff;  /* text on dark bands */
+  --fg: #000000;
+  --muted: #909090;       /* hero subtitle */
+  --subtle: #7c7c7c;      /* inactive labels */
+  --tile: #c4c4c4;        /* social / counter tiles */
+  --line: #000000;
+  --accent: #000000;      /* design has no accent colour */
   --accent-fg: #ffffff;
 }
 
-:root[data-theme="dark"] {
-  --bg: #0e0e10;
-  --surface: #17171a;
-  --fg: #ececea;
-  --muted: #9a9993;
-  --line: #26262b;
-  --accent: #8b8cf8;
-  --accent-fg: #0e0e10;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0e0e10;
-    --surface: #17171a;
-    --fg: #ececea;
-    --muted: #9a9993;
-    --line: #26262b;
-    --accent: #8b8cf8;
-    --accent-fg: #0e0e10;
-  }
-}
-
 @theme inline {
-  --font-sans: "Inter", "Noto Sans Thai", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Open Sans", "Noto Sans Thai", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Raleway", "Noto Sans Thai", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Montserrat", "Noto Sans Thai", ui-sans-serif, system-ui, sans-serif;
+
   --color-bg: var(--bg);
+  --color-hero: var(--hero);
   --color-surface: var(--surface);
+  --color-surface-deep: var(--surface-deep);
+  --color-surface-fg: var(--surface-fg);
   --color-fg: var(--fg);
   --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-tile: var(--tile);
   --color-line: var(--line);
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
+
+  --tracking-heading: 0.35em; /* boxed section titles (30px / 10.66px) */
+  --tracking-label: 0.185em;  /* small headings, buttons (15px / 2.78px) */
+  --leading-body: 1.387;
+
+  --shadow-tile: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Soft white-centre glow behind light sections */
+@utility bg-glow {
+  background-color: var(--hero);
+  background-image: radial-gradient(ellipse at center, #ffffff 0%, var(--hero) 75%);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 3.5rem; /* = scrolled TopBar height (h-14), so sections start right under it */
+    color-scheme: light;
   }
   body {
     margin: 0;
     @apply bg-bg text-fg font-sans antialiased;
-    transition: background-color 0.2s, color 0.2s;
   }
   ::selection {
-    background: var(--accent);
-    color: var(--accent-fg);
+    background: var(--fg);
+    color: var(--bg);
   }
   :focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid currentColor;
     outline-offset: 3px;
-    border-radius: 4px;
   }
 }
 

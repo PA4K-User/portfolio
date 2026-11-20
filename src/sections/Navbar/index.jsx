@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 
 const navs = [
-  { title: "About", sectionId: "About-section" },
+  { title: "About me", sectionId: "About-section" },
+  { title: "Skills", sectionId: "Skills-section" },
   { title: "Experience", sectionId: "Experience-section" },
 ]
 
-const Navbar = () => {
+// `solid`: true when sitting on the dark scrolled bar → always light text.
+const Navbar = ({ solid = false }) => {
   const [active, setActive] = useState(navs[0].sectionId);
 
   useEffect(() => {
@@ -30,8 +32,8 @@ const Navbar = () => {
   }
 
   return (
-    <nav aria-label="Sections" className="mt-14 hidden lg:block">
-      <ul className="flex flex-col gap-4">
+    <nav aria-label="Sections" className={`transition-colors ${solid ? "text-surface-fg" : "text-fg lg:text-surface-fg"}`}>
+      <ul className="flex items-center gap-4 sm:gap-8 lg:gap-10">
         {navs.map(({ title, sectionId }) => {
           const isActive = active === sectionId;
           return (
@@ -40,14 +42,22 @@ const Navbar = () => {
                 type="button"
                 onClick={() => handleClick(sectionId)}
                 aria-current={isActive ? "true" : undefined}
-                className={`group flex items-center gap-4 text-xs font-semibold uppercase tracking-widest cursor-pointer transition-colors ${isActive ? "text-fg" : "text-muted hover:text-fg"}`}
+                className={`border-b-2 pb-1 font-heading text-[11px] font-semibold cursor-pointer transition-all sm:text-sm ${isActive ? "border-current" : "border-transparent opacity-75 hover:opacity-100"}`}
               >
-                <span className={`h-px transition-all ${isActive ? "w-16 bg-fg" : "w-8 bg-muted group-hover:w-16 group-hover:bg-fg"}`} />
                 {title}
               </button>
             </li>
           );
         })}
+        <li>
+          <button
+            type="button"
+            onClick={() => handleClick("Contact-section")}
+            className="rounded-full bg-surface-fg px-3 py-1.5 font-heading text-[11px] font-bold uppercase text-fg shadow-tile cursor-pointer transition-colors hover:bg-tile sm:px-5 sm:py-2 sm:text-xs"
+          >
+            Contact me
+          </button>
+        </li>
       </ul>
     </nav>
   )
