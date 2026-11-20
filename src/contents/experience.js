@@ -2,7 +2,6 @@ import data_finace from "../assets/data_finance.jpg"
 import food_app from "../assets/food-app.jpg"
 import movie_app from "../assets/movie-app.jpg"
 import photographer from "../assets/photographer.jpg"
-import Nuxt_Movie from "../assets/Nuxt_Movie.jpg"
 import Urban_Build from "../assets/Urban_Build.jpg"
 import Funiro from "../assets/Funiro.jpg"
 
