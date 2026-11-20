@@ -44,7 +44,7 @@ export const data = [
         picture: Urban_Build,
     },
     {
-        date: "2006",
+        date: "2026",
         title: "Movie App",
         link: "https://movie-app-nine-red.vercel.app/",
         materials: [

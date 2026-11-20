@@ -1,6 +1,6 @@
 const FormattedDate = ({children}) => {
     return (
-        <div className="pt-1 text-xs font-semibold uppercase tracking-wide text-muted">{children}</div>
+        <div className="font-heading text-xs font-semibold uppercase tracking-label text-surface-fg/60">{children}</div>
     )
 }
 
