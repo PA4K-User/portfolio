@@ -1,7 +1,7 @@
 // Tech stack from src/assets/Resume.pdf (Skills + Personal Projects).
 // `logo` = brand mark from simple-icons; `icon` = generic FontAwesome icon for tech without an official logo.
 import {
-    siHtml5, siCss, siTailwindcss, siMui, siJavascript, siTypescript, siReact, siNextdotjs, siNuxt, siFramer,
+    siHtml5, siCss, siTailwindcss, siMui, siJavascript, siTypescript, siReact, siNextdotjs,
     siRedux, siNodedotjs, siExpress, siClaude, siGit, siGithub,
 } from "simple-icons";
 import {
@@ -22,8 +22,6 @@ export const data = {
                 { name: "TypeScript", logo: siTypescript },
                 { name: "React", logo: siReact },
                 { name: "Next.js", logo: siNextdotjs },
-                { name: "Nuxt", logo: siNuxt },
-                { name: "Framer Motion", logo: siFramer },
             ],
         },
         {
