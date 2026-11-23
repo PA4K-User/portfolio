@@ -1,11 +1,10 @@
-import { faFacebook, faGithub, faLinkedin, faTiktok } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const links = [
     { href: "https://github.com/PA4K-User", icon: faGithub, label: "GitHub" },
     { href: "https://www.linkedin.com/in/siwaphon-panisen-875925277/", icon: faLinkedin, label: "LinkedIn" },
     { href: "https://www.facebook.com/sivaphon.panisan", icon: faFacebook, label: "Facebook" },
-    { href: "https://www.tiktok.com/@vigilante848", icon: faTiktok, label: "TikTok" },
 ];
 
 const variants = {

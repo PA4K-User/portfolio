@@ -8,13 +8,12 @@ describe("Contact Component", () => {
 
     // หา anchor tag ทั้งหมด
     const links = screen.getAllByRole("link");
-    expect(links).toHaveLength(4);
+    expect(links).toHaveLength(3);
 
     // ตรวจสอบ href
     expect(links[0]).toHaveAttribute("href", "https://github.com/PA4K-User");
     expect(links[1]).toHaveAttribute("href", "https://www.linkedin.com/in/siwaphon-panisen-875925277/");
     expect(links[2]).toHaveAttribute("href", "https://www.facebook.com/sivaphon.panisan");
-    expect(links[3]).toHaveAttribute("href", "https://www.tiktok.com/@vigilante848");
 
     // ตรวจสอบว่ามี target="_blank"
     links.forEach((link) => {
